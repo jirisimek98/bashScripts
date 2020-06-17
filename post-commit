@@ -1,0 +1,14 @@
+#!/bin/bash
+CURRENTDIR=$(pwd);
+USR=root;
+PASS=redhat;
+
+echo ${CURRENTDIR} >> /home/jboss/opt/data/log.txt;
+
+git push http://${USR}:${PASS}@gogs.apps.playground.rhba.openshift-aws.rhocf-dev.com/root/jsimek-OS master;
+
+cd ../Production;
+
+git pull http://${USR}:${PASS}@gogs.apps.playground.rhba.openshift-aws.rhocf-dev.com/root/jsimek-OS master;
+
+cd $CURRENTDIR;
